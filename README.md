@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NgCompleteGuideUpdate
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# ngHttp
+ng course learning modulewise
+>>>>>>> 21a731bc409c08e4ae1943f2bc8e25ef8dd3c160
