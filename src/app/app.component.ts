@@ -17,7 +17,11 @@ export class AppComponent implements OnInit {
               private postService: PostsService) {}
 
   ngOnInit() {
-    this.fetchPosts();
+    this.isFetching = true;
+    this.postService.fetchPost().subscribe(posts => {
+      this.isFetching = false;
+      this.loadedPosts = posts;
+    });
   }
 
   onCreatePost(postData: Post) {
@@ -27,30 +31,10 @@ export class AppComponent implements OnInit {
 
   onFetchPosts() {
     // Send Http request
-    this.fetchPosts();
   }
 
   onClearPosts() {
     // Send Http request
   }
   // Get Http request
-  private fetchPosts() {
-    this.isFetching = true;
-    this.http.get<{ [key: string]: Post }>('https://ng-complete-guide-f56d8.firebaseio.com/posts.json')
-    .pipe(
-      map(responseData => {
-        const postArray: Post[] = [];
-        for (const key in responseData) {
-          if (responseData.hasOwnProperty(key)) {
-            postArray.push({ ...responseData[key], id: key});
-          }
-        }
-        return postArray;
-      })
-    )
-    .subscribe(posts => {
-      this.isFetching = false;
-      this.loadedPosts = posts;
-    });
-  }
 }
